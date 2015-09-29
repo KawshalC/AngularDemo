@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="JavaScript/angular.js" type="application/javascript"></script>
+    <script src="JavaScript/index.js" type="application/javascript"></script>
+    <title></title>
+</head>
+<body>
+<div>
+    <div>
+        <div ng-view=""></div>
+    </div>
+    Name:<input type="text" ng-model="naam"/>
+    <ul>
+        <li ng-repeat="cust in customer | filter:naam | orderBy:'city' ">{{cust.name | uppercase}} - {{cust.city}}</li>
+    </ul>
+</div>
+
+</body>
+</html>
