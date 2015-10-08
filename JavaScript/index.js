@@ -13,15 +13,20 @@ demoApp.config(function($routeProvider){
 });
 demoApp.factory('FirstFactory',function(){
     var factory={};
-    factory.getCustomers=function(){
-        return [{name: 'Asish', city: 'Kolkata'}, {name: 'Kawshal', city: 'Chennai'}, {name: 'Dalli',city: 'Mumbai'}];
+    factory.dataToSend=[];
+    factory.init=function(){
+        factory.populateCustomers();
+    };
+    factory.populateCustomers=function(){
+        factory.dataToSend= [{name: 'Asish', city: 'Kolkata'}, {name: 'Kawshal', city: 'Chennai'}, {name: 'Dalli',city: 'Mumbai'}];
     };
     factory.removeCustomer=function(cust){
-        factory.getCustomers().splice(factory.getCustomers().indexOf(cust),1);
+        factory.dataToSend.splice(factory.dataToSend.indexOf(cust),1);
     };
     factory.addCustomer=function(newName,newCity){
-        factory.getCustomers().add({name:newName,city:newCity});
+        factory.dataToSend.add({name:newName,city:newCity});
     };
+    factory.init();
     return factory;
 
 });
@@ -30,7 +35,7 @@ demoApp.controller('FirstController',function($scope,$routeParams,$http,FirstFac
         $scope.pages = res.data['landing_pages'];
     });
     $scope.init=function(){
-        $scope.customer = FirstFactory.getCustomers();
+        $scope.customer = FirstFactory.dataToSend;
     };
     $scope.addCustomer=function(){
         FirstFactory.addCustomer($scope.newCustomer.name,$scope.newCustomer.city);
