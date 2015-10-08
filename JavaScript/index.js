@@ -13,7 +13,7 @@ demoApp.config(function($routeProvider){
 });
 demoApp.factory('FirstFactory',function(){
     var factory={};
-    factory.dataToSend=[];
+    //factory.dataToSend=[];
     factory.init=function(){
         factory.populateCustomers();
     };
@@ -24,7 +24,7 @@ demoApp.factory('FirstFactory',function(){
         factory.dataToSend.splice(factory.dataToSend.indexOf(cust),1);
     };
     factory.addCustomer=function(newName,newCity){
-        factory.dataToSend.add({name:newName,city:newCity});
+        factory.dataToSend.push({name:newName,city:newCity});
     };
     factory.init();
     return factory;
