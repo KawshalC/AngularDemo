@@ -1,12 +1,16 @@
 
 <div class="container">
-    <h2>View2</h2>
-    Name:<input type="text" ng-model="filter.name"/>
+    <h2>View 1</h2>
     <ul>
-        <li ng-repeat="cust in customer | filter:filter.name | orderBy:'city' ">{{cust.name | uppercase}} - {{cust.city}}</li>
-    </ul>
-    Custumer Name: <input ng-model="newCustomer.name"/>
-    Custumer City: <input ng-model="newCustomer.city"/>
-    <button ng-click="AddCustomer()">Add</button>
+        <li ng-repeat="cust in customer">
+            <span>{{cust.name}} - {{cust.city}}</span>
+            <button ng-click="removeCustomer(cust)">Remove Me</button>
 
+        </li>
+    </ul>
+    New Name:<input type="text" ng-model="newCustomer.name"/>
+    New City:<input type="text" ng-model="newCustomer.city"/>
+    <button ng-click="addCustomer()">Add</button>
+    <br/>
+    <a href="#/view2">View2</a>
 </div>

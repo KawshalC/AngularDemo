@@ -1,7 +1,8 @@
 <div class="container">
-    <h2>View1</h2>
-    Name:<input type="text" ng-model="naam"/>
+    <h2>View 2</h2>
     <ul>
-        <li ng-repeat="cust in customer | filter:naam | orderBy:'city' ">{{cust.name | uppercase}} - {{cust.city}}</li>
+        <li ng-repeat="cust in customer">{{cust.name | uppercase}} - {{cust.city}}</li>
     </ul>
+    <br/>
+    <a href="#/view1">View1</a>
 </div>
